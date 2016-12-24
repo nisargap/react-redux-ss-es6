@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import ReactRouter from 'react-router';
-import Redux from 'redux';
+import { match, RouterContext } from 'react-router';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import Routes from './routes';
 
@@ -19,17 +19,17 @@ router.get('/api/test', (request, response) => {
 
 router.get('*', (request, response) => {
   let initialState = { title: 'Universal React' };
-  let store = Redux.createStore(reducer, initialState);
+  let store = createStore(reducer, initialState);
 
-  ReactRouter.match({
+  match({
     routes: Routes,
     location: request.url
   }, (error, redirectLocation, renderProps) => {
 
     if(renderProps) {
-      let html = ReactDomServer.renderToString(
+      let html = ReactDOMServer.renderToString(
         <Provider store={store}>
-          <ReactRouter.RouterContext {...renderProps}  />
+          <RouterContext {...renderProps}  />
         </Provider>
       );
       response.send(html);
