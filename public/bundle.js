@@ -9153,6 +9153,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	// new es6 babel transform-decorators-legacy allows you to do this
 	var Layout = (_dec = (0, _reactRedux.connect)(function (state) {
 	    return { custom: state };
 	}), _dec(_class = function (_Component) {
@@ -9244,13 +9245,6 @@
 	    return Layout;
 	}(_react.Component)) || _class);
 	exports.default = Layout;
-	// var wrapper = connect(
-	//   function(state) {
-	//     return { custom: state };
-	//   }
-	// )
-	// wrapper(Layout);
-	// export default wrapper(Layout);
 
 /***/ },
 /* 90 */
@@ -10396,8 +10390,7 @@
 	  if (value == null) {
 	    return value === undefined ? undefinedTag : nullTag;
 	  }
-	  value = Object(value);
-	  return (symToStringTag && symToStringTag in value)
+	  return (symToStringTag && symToStringTag in Object(value))
 	    ? getRawTag(value)
 	    : objectToString(value);
 	}
