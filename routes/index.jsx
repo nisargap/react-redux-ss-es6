@@ -42,4 +42,4 @@ router.get('*', (request, response) => {
 
 });
 
-export default router;
+module.exports = router;

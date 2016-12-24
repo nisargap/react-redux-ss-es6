@@ -1,3 +1,4 @@
+// required from enabling natively unsupported ES6 syntax features
 require('babel-register');
 
 let express = require('express');
