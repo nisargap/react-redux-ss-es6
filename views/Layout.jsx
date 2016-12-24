@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+// new es6 babel transform-decorators-legacy allows you to do this
 @connect((state) => {
   return { custom: state };
 })
@@ -38,10 +39,3 @@ class Layout extends Component {
   }
 }
 export default Layout;
-// var wrapper = connect(
-//   function(state) {
-//     return { custom: state };
-//   }
-// )
-// wrapper(Layout);
-// export default wrapper(Layout);

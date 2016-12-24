@@ -1,17 +1,22 @@
-var router = require('express').Router();
-var React = require('react');
-var ReactDomServer = require('react-dom/server');
-var ReactRouter = require('react-router');
-var Redux = require('redux');
-var Provider = require('react-redux').Provider;
+import { Router } from 'express';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import ReactRouter from 'react-router';
+import Redux from 'redux';
+import { Provider } from 'react-redux';
 import Routes from './routes';
 
-function reducer(state) { return state; }
+let router = Router();
+
+let reducer = (state) => { return state; }
+
+// You can define other routes for your API here
 router.get('/api/test', (request, response) => {
   response.json({
     test: 'test'
   })
 })
+
 router.get('*', (request, response) => {
   let initialState = { title: 'Universal React' };
   let store = Redux.createStore(reducer, initialState);
@@ -32,8 +37,9 @@ router.get('*', (request, response) => {
     } else {
       response.status(404).send('Not Found');
     }
-    
+
   });
 
 });
-module.exports = router;
+
+export default router;
