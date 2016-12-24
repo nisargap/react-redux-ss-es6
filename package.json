@@ -1,7 +1,7 @@
 {
   "name": "ss-rendering",
   "version": "1.0.0",
-  "description": "",
+  "description": "From tutorial series by [@remarkablemark](https://github.com/remarkablemark/)",
   "main": "client.js",
   "dependencies": {
     "babel-cli": "^6.18.0",
@@ -26,5 +26,14 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nisargap/react-redux-ss-es6.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nisargap/react-redux-ss-es6/issues"
+  },
+  "homepage": "https://github.com/nisargap/react-redux-ss-es6#readme"
 }
