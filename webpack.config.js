@@ -16,7 +16,7 @@ module.exports = {
                 query: {
                     presets: ['react', 'babel-preset-es2015'],
                     plugins: ['transform-react-jsx',
-                              'transform-decorators-legacy'
+                              'transform-decorators-legacy',
                               'transform-class-properties']
                 }
             }
