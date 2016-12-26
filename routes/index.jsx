@@ -17,16 +17,21 @@ router.get('/api/test', (request, response) => {
   })
 })
 
+// catch all route
 router.get('*', (request, response) => {
+
   let initialState = { title: 'Universal React' };
   let store = createStore(reducer, initialState);
 
+  // router matching function
   match({
     routes: Routes,
     location: request.url
   }, (error, redirectLocation, renderProps) => {
 
     if(renderProps) {
+
+      // the isomorphic magic that renders a react component server-side
       let html = ReactDOMServer.renderToString(
         <Provider store={store}>
           <RouterContext {...renderProps}  />
